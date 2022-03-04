@@ -1,30 +1,28 @@
 import React from 'react'
 import styles from "./Card.module.scss"
 console.log(styles)
-function Card (props) {
+function Card ({title, imageUrl,price,onFavorite,onPllus}) {
 
   const [isAdded,setIsAdded] = React.useState(false)
   const onClickPlus=() =>{
+    onPlus({title, imageUrl,price,});
     setIsAdded(!isAdded);
   }
 
-  // React.useEffect (()=>{
-  //   console.log
-  
-  // })
+
 const onPlus = () =>{
-  alert(props.title)
+  alert(title)
 }
   return (
     <div>
         <div className={styles.card}>
- <div className={styles.favorite}onClick={props.onFavorite}>
+ <div className={styles.favorite}onClick={onFavorite}>
 
  <img className={styles.like}src='/img/like.svg' alt='like'/>
  </div>
-  <img width={133} height={122} src={props.imageUrl}alt='snaekers'/>
+  <img width={133} height={122} src={imageUrl}alt='snaekers'/>
   <h5>
-{props.title}
+{title}
   </h5>
   <div className='d-flex justify-between aligin-center'>
     <div className='d-flex flex-column '>
@@ -32,7 +30,7 @@ const onPlus = () =>{
 Цена:
 </span>
 <b>
-{props.price} руб.
+{price} руб.
 </b>
     </div>
    
